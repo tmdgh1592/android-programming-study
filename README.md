@@ -1,11 +1,7 @@
 # android-programming-study
 우아한테크코스 실무에서 적용하는 안드로이드 프로그래밍 스터디
 
-## 제출 방법
-1. 각자 자기 GitHub username으로 브랜치를 생성한다.
-2. 해당 브랜치에 주차별로 정리한 내용을 푸시한다.
+## 정리
+#### [2️⃣ 안드로이드와 모델-뷰-컨트롤러](https://github.com/tmdgh1592/android-programming-study/tree/ippnsj/docs/Chapter02.md)
 
-1주차
-- Chapter2, 안드로이드와 모델-뷰-컨트롤러
-- Chapter3, 액티비티 생명주기
-- 일정 : 7월 10일 (월)
+#### [3️⃣ 액티비티 생명주기](https://github.com/tmdgh1592/android-programming-study/tree/ippnsj/docs/Chapter03.md)
