@@ -9,3 +9,7 @@
 #### [4️⃣ UI 상태 유지하기](https://github.com/tmdgh1592/android-programming-study/tree/ippnsj/docs/Chapter04.md)
 
 #### [5️⃣ 안드로이드 앱의 디버깅](https://github.com/tmdgh1592/android-programming-study/tree/ippnsj/docs/Chapter05.md)
+
+#### [6️⃣ 두 번째 액티비티 만들기](https://github.com/tmdgh1592/android-programming-study/tree/ippnsj/docs/Chapter06.md)
+
+#### [7️⃣ 안드로이드 SDK 버전과 호환성](https://github.com/tmdgh1592/android-programming-study/tree/ippnsj/docs/Chapter07.md)
