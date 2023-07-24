@@ -9,6 +9,7 @@ class QuizViewModel : ViewModel() {
 
     var currentIndex = 0
     val isCheater: MutableMap<Question, Boolean> = mutableMapOf()
+    var cheatAvailableCount = 3
     private val questionBank = listOf(
         Question(R.string.question_australia, true),
         Question(R.string.question_oceans, true),

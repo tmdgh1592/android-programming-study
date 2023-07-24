@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/question_text_view"
@@ -37,6 +38,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:text="@string/cheat_button" />
+
+    <TextView
+        android:id="@+id/cheat_available_count_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="남은 커닝 횟수 : 3"
+        android:layout_gravity="bottom|left"/>
 
     <Button
         android:id="@+id/next_button"

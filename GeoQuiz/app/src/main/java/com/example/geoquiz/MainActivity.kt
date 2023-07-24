@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var nextButton: Button
     private lateinit var cheatButton: Button
     private lateinit var questionTextView: TextView
+    private lateinit var cheatAvailableTextView: TextView
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -35,6 +36,9 @@ class MainActivity : AppCompatActivity() {
             val question = quizViewModel.currentQuestion
             quizViewModel.isCheater[question] =
                 data?.getBooleanExtra(CheatActivity.EXTRA_ANSWER_SHOWN, false) ?: false
+            quizViewModel.cheatAvailableCount -= 1
+            cheatAvailableTextView.text =
+                getString(R.string.cheat_available_count, quizViewModel.cheatAvailableCount)
         }
     }
 
@@ -51,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         nextButton = findViewById(R.id.next_button)
         cheatButton = findViewById(R.id.cheat_button)
         questionTextView = findViewById(R.id.question_text_view)
+        cheatAvailableTextView = findViewById(R.id.cheat_available_count_text_view)
 
         trueButton.setOnClickListener {
             checkAnswer(true)
@@ -66,17 +71,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         cheatButton.setOnClickListener {
-            // CheatActivity를 시작시킨다.
-            val answerIsTrue = quizViewModel.currentQuestionAnswer
-            val intent = CheatActivity.newIntent(this, answerIsTrue)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                val options = ActivityOptions
-                    .makeClipRevealAnimation(it, 0, 0, it.width, it.height)
-                startActivityForResult(intent, REQUEST_CODE_CHEAT, options.toBundle())
-            } else {
-                startActivityForResult(intent, REQUEST_CODE_CHEAT)
+            if (quizViewModel.cheatAvailableCount > 0) {
+                // CheatActivity를 시작시킨다.
+                val answerIsTrue = quizViewModel.currentQuestionAnswer
+                val intent = CheatActivity.newIntent(this, answerIsTrue)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    val options = ActivityOptions
+                        .makeClipRevealAnimation(it, 0, 0, it.width, it.height)
+                    startActivityForResult(intent, REQUEST_CODE_CHEAT, options.toBundle())
+                } else {
+                    startActivityForResult(intent, REQUEST_CODE_CHEAT)
+                }
             }
         }
+
+        cheatAvailableTextView.text =
+            getString(R.string.cheat_available_count, quizViewModel.cheatAvailableCount)
 
         updateQuestion()
     }

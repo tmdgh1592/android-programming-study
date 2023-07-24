@@ -41,6 +41,13 @@
         android:layout_marginTop="24dp"
         android:text="@string/cheat_button" />
 
+    <TextView
+        android:id="@+id/cheat_available_count_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="남은 커닝 횟수 : 3"
+        android:layout_marginVertical="10dp"/>
+
     <Button
         android:id="@+id/next_button"
         android:layout_width="wrap_content"
