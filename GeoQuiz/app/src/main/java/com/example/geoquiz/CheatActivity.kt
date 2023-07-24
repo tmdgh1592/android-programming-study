@@ -2,6 +2,7 @@ package com.example.geoquiz
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 class CheatActivity : AppCompatActivity() {
     private lateinit var answerTextView: TextView
     private lateinit var showAnswerButton: Button
+    private lateinit var androidVersionTextView: TextView
 
     private var answerIsTrue = false
     private var isAnswerShown = false
@@ -29,6 +31,10 @@ class CheatActivity : AppCompatActivity() {
         showAnswerButton.setOnClickListener {
             cheatAnswer()
         }
+
+        androidVersionTextView = findViewById(R.id.android_version_text_view)
+        val androidVersion = Build.VERSION.SDK_INT
+        androidVersionTextView.text = getString(R.string.android_version, androidVersion)
     }
 
     private fun cheatAnswer() {
