@@ -8,7 +8,7 @@ private const val TAG = "QuizViewModel"
 class QuizViewModel : ViewModel() {
 
     var currentIndex = 0
-    var isCheater = false
+    val isCheater: MutableMap<Question, Boolean> = mutableMapOf()
     private val questionBank = listOf(
         Question(R.string.question_australia, true),
         Question(R.string.question_oceans, true),
@@ -22,9 +22,14 @@ class QuizViewModel : ViewModel() {
         get() = questionBank[currentIndex].answer
     val currentQuestionText: Int
         get() = questionBank[currentIndex].textResId
+    val currentQuestion: Question
+        get() = questionBank[currentIndex]
 
     init {
         Log.d(TAG, "ViewModel instance created")
+        questionBank.forEach {
+            isCheater[it] = false
+        }
     }
 
     override fun onCleared() {
